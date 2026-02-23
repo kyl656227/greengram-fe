@@ -19,7 +19,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
 const app = createApp(App)
-app.component('font-awsome-icon', FontAwesomeIcon);
+app.component('font-awesome-icon', FontAwesomeIcon);
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedState);

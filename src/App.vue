@@ -3,7 +3,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import { ref, reactive } from 'vue';
 import { useMessageModalStore } from './stores/messageModal';
 import { useAuthenticationStore } from './stores/authentication';
-import { postFeed } from './services/FeedService';
+import { postFeed } from './services/feedService';
 import { useFeedStore } from './stores/feed';
 
 

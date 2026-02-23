@@ -4,7 +4,7 @@ import FeedCard from '@/components/FeedCard.vue';
 import { reactive, onMounted, onUnmounted, watch } from 'vue';
 import { useFeedStore } from '@/stores/feed';
 import { bindEvent } from '@/utils/commonUtils';
-import { getFeedList, deleteFeed } from '@/services/FeedService';
+import { getFeedList, deleteFeed } from '@/services/feedService';
 
 const feedStore = useFeedStore();
 

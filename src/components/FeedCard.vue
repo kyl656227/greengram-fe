@@ -15,10 +15,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const baseUrl = ref(import.meta.env.VITE_BASE_URL);
+const commentModalStore = useCommentModalStore();
 
 const authenticationStore = useAuthenticationStore();
-
-const commentModalStore = useCommentModalStore();
 
 const props = defineProps({
   item: {
@@ -37,10 +36,6 @@ const props = defineProps({
   onDeleteFeed: Function,
 });
 
-const showCommentModel = () => {
-  commentModalStore.setFeedId(props.item.feedId);
-}
-
 const state = reactive({
   modules: [Navigation, Pagination, Scrollbar, A11y],
   isLike: props.item.isLike,
@@ -56,6 +51,10 @@ const toggleLike = async () => {
     state.likeCount = state.isLike ? state.likeCount + 1 : state.likeCount - 1;
   }
 };
+
+const showCommentModel = () => {
+  commentModalStore.setFeedId(props.item.feedId);
+}
 </script>
 
 <template>
@@ -121,16 +120,13 @@ const toggleLike = async () => {
       </div>
 
       <div>
-        <font-awesome-icon icon="fa-regular fa-comment" class="pointer rem1_2 me-3" @click="showCommentModel" />
+        <font-awesome-icon icon="fa-regular fa-comment" class="pointer rem1_2 me-3" @click="showCommentModel"/>
         <span>{{ props.item.commentCount }}</span>
       </div>
     </div>
     <div class="itemCtnt p-2" v-if="props.item.contents">
       {{ props.item.contents }}
     </div>
-    <feed-comment-container
-      :feed-id="props.item.feedId"
-      :comments="props.item.comments" />
   </div>
 </template>
 
